@@ -55,7 +55,7 @@
 
     .sidebar-bar-button {
       flex-grow: 1;
-
+      border-radius: 3px;
       &:not(:last-child) {
         margin-right: 10px;
       }
@@ -93,7 +93,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   .container {
     min-height: unset;
     min-width: unset;
@@ -137,11 +137,24 @@
   font-size: 20px;
   font-weight: bold;
   animation: slide-in ease 0.3s;
+  display: table-cell;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin-top:-20px;
+  margin-bottom: 20xp;
+}
+
+.sidebar-title-img{
+  width: 170px;
+  height: 46px;
 }
 
 .sidebar-sub-title {
+  color: white;
   font-size: 12px;
   font-weight: 400px;
+  text-align: center;
   animation: slide-in ease 0.3s;
 }
 
@@ -154,7 +167,7 @@
 .chat-item {
   padding: 10px 14px;
   background-color: var(--white);
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 10px;
   box-shadow: var(--card-shadow);
   transition: background-color 0.3s ease;
@@ -169,7 +182,8 @@
 }
 
 .chat-item-selected {
-  border-color: var(--primary);
+  border-color: var(--user-second);
+  background-color: var(--user-second);
 }
 
 .chat-item-title {
@@ -308,6 +322,10 @@
   }
 }
 
+.sidebar-tail-button{
+    border-radius: 20px !important;
+}
+
 .sidebar-tail {
   display: flex;
   justify-content: space-between;
@@ -376,6 +394,7 @@
 
 .chat-message-user > .chat-message-container {
   align-items: flex-end;
+  color: var(--color-fg-default);
 }
 
 .chat-message-avatar {
@@ -434,6 +453,7 @@
 
 .chat-message-user > .chat-message-container > .chat-message-item {
   background-color: var(--second);
+  color: var(--color-fg-default-user);
 }
 
 .chat-message-actions {

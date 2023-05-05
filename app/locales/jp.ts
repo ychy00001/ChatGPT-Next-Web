@@ -11,7 +11,7 @@ const jp: LocaleType = {
     ChatItemCount: (count: number) => `${count} 通のチャット`,
   },
   Chat: {
-    SubTitle: (count: number) => `ChatGPTとの ${count} 通のチャット`,
+    SubTitle: (count: number) => `RongGPTとの ${count} 通のチャット`,
     Actions: {
       ChatList: "メッセージリストを表示",
       CompressedHistory: "圧縮された履歴プロンプトを表示",
@@ -41,7 +41,7 @@ const jp: LocaleType = {
     Copy: "すべてコピー",
     Download: "ファイルをダウンロード",
     MessageFromYou: "あなたからのメッセージ",
-    MessageFromChatGPT: "ChatGPTからのメッセージ",
+    MessageFromChatGPT: "RongGPTからのメッセージ",
   },
   Memory: {
     Title: "履歴メモリ",
@@ -236,6 +236,9 @@ const jp: LocaleType = {
     Close: "关闭",
     Create: "新建",
     Edit: "编辑",
+  },
+  Custom: {
+    SideSubTile: "Cloudwalk LLM Lab",
   },
 };
 

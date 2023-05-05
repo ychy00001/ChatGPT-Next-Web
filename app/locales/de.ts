@@ -11,7 +11,7 @@ const de: LocaleType = {
     ChatItemCount: (count: number) => `${count} Nachrichten`,
   },
   Chat: {
-    SubTitle: (count: number) => `${count} Nachrichten mit ChatGPT`,
+    SubTitle: (count: number) => `${count} Nachrichten mit RongGPT`,
     Actions: {
       ChatList: "Zur Chat-Liste gehen",
       CompressedHistory: "Komprimierter Gedächtnis-Prompt",
@@ -41,7 +41,7 @@ const de: LocaleType = {
     Copy: "Alles kopieren",
     Download: "Herunterladen",
     MessageFromYou: "Deine Nachricht",
-    MessageFromChatGPT: "Nachricht von ChatGPT",
+    MessageFromChatGPT: "Nachricht von RongGPT",
   },
   Memory: {
     Title: "Gedächtnis-Prompt",
@@ -240,6 +240,10 @@ const de: LocaleType = {
     Close: "Close",
     Create: "Create",
     Edit: "Edit",
+  },
+
+  Custom: {
+    SideSubTile: "Cloudwalk LLM Lab",
   },
 };
 

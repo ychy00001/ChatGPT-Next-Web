@@ -11,6 +11,7 @@ import DownloadIcon from "../icons/download.svg";
 import LoadingIcon from "../icons/three-dots.svg";
 import PromptIcon from "../icons/prompt.svg";
 import MaskIcon from "../icons/mask.svg";
+import TemplateIcon from "../icons/template.svg";
 import MaxIcon from "../icons/max.svg";
 import MinIcon from "../icons/min.svg";
 import ResetIcon from "../icons/reload.svg";
@@ -364,7 +365,7 @@ export function ChatActions(props: {
         </div>
       )}
 
-      <div
+      {/* <div
         className={`${chatStyle["chat-input-action"]} clickable`}
         onClick={nextTheme}
       >
@@ -375,9 +376,9 @@ export function ChatActions(props: {
         ) : theme === Theme.Dark ? (
           <DarkIcon />
         ) : null}
-      </div>
+      </div> */}
 
-      <div
+      {/* <div
         className={`${chatStyle["chat-input-action"]} clickable`}
         onClick={props.showPromptHints}
       >
@@ -390,8 +391,8 @@ export function ChatActions(props: {
           navigate(Path.Masks);
         }}
       >
-        <MaskIcon />
-      </div>
+        <TemplateIcon />
+      </div> */}
     </div>
   );
 }
@@ -633,7 +634,7 @@ export function Chat() {
           </div>
         </div>
         <div className="window-actions">
-          <div className={"window-action-button" + " " + styles.mobile}>
+          {/* <div className={"window-action-button" + " " + styles.mobile}>
             <IconButton
               icon={<ReturnIcon />}
               bordered
@@ -673,7 +674,7 @@ export function Chat() {
                 }}
               />
             </div>
-          )}
+          )} */}
         </div>
 
         <PromptToast

@@ -8,9 +8,14 @@
   --white: white;
   --black: rgb(48, 48, 48);
   --gray: rgb(250, 250, 250);
-  --primary: rgb(29, 147, 171);
-  --second: rgb(231, 248, 255);
-  --hover-color: #f3f3f3;
+//   --primary: rgb(29, 147, 171);
+//   --primary: rgb(206, 61, 58);
+  --primary: rgb(168,37,33);
+// --second: rgb(231,248,255);
+  --second: rgb(168,37,33);
+  --user-second:#cffff3;
+//   --second: rgb(202,153,54);
+  --hover-color: #ffdddd;
   --bar-color: rgba(0, 0, 0, 0.1);
   --theme-color: var(--gray);
 
@@ -31,6 +36,7 @@
   --gray: rgb(21, 21, 21);
   --primary: rgb(29, 147, 171);
   --second: rgb(27 38 42);
+  --user-second: rgb(170,170,170);
   --hover-color: #323232;
 
   --bar-color: rgba(255, 255, 255, 0.1);
@@ -61,7 +67,7 @@
 
   --window-width: 90vw;
   --window-height: 90vh;
-  --sidebar-width: 300px;
+  --sidebar-width: 270px;
   --window-content-width: calc(100% - var(--sidebar-width));
   --message-max-width: 80%;
   --full-height: 100%;

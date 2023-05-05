@@ -11,7 +11,7 @@ const en: LocaleType = {
     ChatItemCount: (count: number) => `${count} messages`,
   },
   Chat: {
-    SubTitle: (count: number) => `${count} messages with ChatGPT`,
+    SubTitle: (count: number) => `${count} messages with RongGPT`,
     Actions: {
       ChatList: "Go To Chat List",
       CompressedHistory: "Compressed History Memory Prompt",
@@ -33,7 +33,7 @@ const en: LocaleType = {
     Send: "Send",
     Config: {
       Reset: "Reset to Default",
-      SaveAs: "Save as Mask",
+      SaveAs: "Save as Template",
     },
   },
   Export: {
@@ -41,7 +41,7 @@ const en: LocaleType = {
     Copy: "Copy All",
     Download: "Download",
     MessageFromYou: "Message From You",
-    MessageFromChatGPT: "Message From ChatGPT",
+    MessageFromChatGPT: "Message From RongGPT",
   },
   Memory: {
     Title: "Memory Prompt",
@@ -103,8 +103,8 @@ const en: LocaleType = {
       SubTitle: "Preview markdown in bubble",
     },
     Mask: {
-      Title: "Mask Splash Screen",
-      SubTitle: "Show a mask splash screen before starting new chat",
+      Title: "Template Splash Screen",
+      SubTitle: "Show a template splash screen before starting new chat",
     },
     Prompt: {
       Disable: {
@@ -194,7 +194,7 @@ const en: LocaleType = {
     Name: "Plugin",
   },
   Mask: {
-    Name: "Mask",
+    Name: "Template",
     Page: {
       Title: "Prompt Template",
       SubTitle: (count: number) => `${count} prompt templates`,
@@ -223,8 +223,8 @@ const en: LocaleType = {
   NewChat: {
     Return: "Return",
     Skip: "Skip",
-    Title: "Pick a Mask",
-    SubTitle: "Chat with the Soul behind the Mask",
+    Title: "Pick a Template",
+    SubTitle: "Chat with new Template",
     More: "Find More",
     NotShow: "Not Show Again",
     ConfirmNoShow: "Confirm to disable？You can enable it in settings later.",
@@ -236,6 +236,10 @@ const en: LocaleType = {
     Close: "Close",
     Create: "Create",
     Edit: "Edit",
+  },
+
+  Custom: {
+    SideSubTile: "Cloudwalk LLM Lab",
   },
 };
 
