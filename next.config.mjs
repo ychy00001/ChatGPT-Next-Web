@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  async rewrites() {
+  async rewrites () {
     const ret = [];
 
     const apiUrl = process.env.API_URL;
@@ -18,7 +18,7 @@ const nextConfig = {
 
     return ret;
   },
-  webpack(config) {
+  webpack (config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],

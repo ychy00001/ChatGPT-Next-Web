@@ -11,7 +11,7 @@ import { isMobileScreen, trimTopic } from "../utils";
 
 import Locale from "../locales";
 import { showToast } from "../components/ui-lib";
-import { DEFAULT_CONFIG, ModelConfig, ModelType, useAppConfig } from "./config";
+import { DEFAULT_CONFIG, ModelConfig, useAppConfig } from "./config";
 import { createEmptyMask, Mask } from "./mask";
 import { StoreKey } from "../constant";
 
@@ -20,7 +20,7 @@ export type Message = ChatCompletionResponseMessage & {
   streaming?: boolean;
   isError?: boolean;
   id?: number;
-  model?: ModelType;
+  model?: string;
 };
 
 export function createMessage(override: Partial<Message>): Message {
@@ -398,7 +398,7 @@ export const useChatStore = create<ChatStore>()(
           countMessages(session.messages) >= SUMMARIZE_MIN_LEN
         ) {
           requestWithPrompt(session.messages, Locale.Store.Prompt.Topic, {
-            model: "gpt-3.5-turbo",
+            model: session.mask.modelConfig.model,
           }).then((res) => {
             get().updateCurrentSession(
               (session) =>

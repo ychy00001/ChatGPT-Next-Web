@@ -30,13 +30,18 @@ export const DEFAULT_CONFIG = {
   dontShowMaskSplashScreen: false, // dont show splash screen when create chat
 
   modelConfig: {
-    model: "gpt-3.5-turbo" as ModelType,
+    model: "cwRong",
     temperature: 1,
-    max_tokens: 2000,
-    presence_penalty: 0,
+    max_tokens: 1000,
+    max_new_tokens: 1000,
+    presence_penalty: 1.0,
     sendMemory: true,
     historyMessageCount: 4,
     compressMessageLengthThreshold: 1000,
+    top_p: 0.95,
+    top_k: 50,
+    do_sample: false,
+    truncate: 1000,
   },
 };
 
@@ -78,7 +83,7 @@ export const ALL_MODELS = [
   },
 ] as const;
 
-export type ModelType = (typeof ALL_MODELS)[number]["name"];
+// export type ModelType = (typeof ALL_MODELS)[number]["name"];
 
 export function limitNumber(
   x: number,
@@ -94,14 +99,15 @@ export function limitNumber(
 }
 
 export function limitModel(name: string) {
-  return ALL_MODELS.some((m) => m.name === name && m.available)
-    ? name
-    : ALL_MODELS[4].name;
+  return name;
+  //   return ALL_MODELS.some((m) => m.name === name && m.available)
+  //     ? name
+  //     : ALL_MODELS[4].name;
 }
 
 export const ModalConfigValidator = {
   model(x: string) {
-    return limitModel(x) as ModelType;
+    return limitModel(x);
   },
   max_tokens(x: number) {
     return limitNumber(x, 0, 32000, 2000);

@@ -1,31 +1,43 @@
 import styles from "./settings.module.scss";
-import { ALL_MODELS, ModalConfigValidator, ModelConfig } from "../store";
+import { ModalConfigValidator, ModelConfig } from "../store";
 
 import Locale from "../locales";
 import { InputRange } from "./input-range";
 import { List, ListItem } from "./ui-lib";
+import { useEffect, useState } from "react";
+import { requestModelList } from "../requests";
 
 export function ModelConfigList(props: {
   modelConfig: ModelConfig;
   updateConfig: (updater: (config: ModelConfig) => void) => void;
 }) {
+  const [modelList, setModelList] = useState(["----"]);
+  useEffect(() => {
+    requestModelList().then((res) => {
+      if (res) {
+        setModelList(modelList.concat(res.models));
+        console.log("查询出模型列表：", res.models);
+      } else {
+        console.log("当前无模型注册！");
+      }
+    });
+  }, []);
+
   return (
     <>
       <ListItem title={Locale.Settings.Model}>
         <select
           value={props.modelConfig.model}
           onChange={(e) => {
-            props.updateConfig(
-              (config) =>
-                (config.model = ModalConfigValidator.model(
-                  e.currentTarget.value,
-                )),
-            );
+            props.updateConfig((config) => {
+              console.log("update");
+              config.model = ModalConfigValidator.model(e.currentTarget.value);
+            });
           }}
         >
-          {ALL_MODELS.map((v) => (
-            <option value={v.name} key={v.name} disabled={!v.available}>
-              {v.name}
+          {modelList?.map((v) => (
+            <option value={v} key={v}>
+              {v}
             </option>
           ))}
         </select>
@@ -56,7 +68,7 @@ export function ModelConfigList(props: {
         <input
           type="number"
           min={100}
-          max={32000}
+          max={1024}
           value={props.modelConfig.max_tokens}
           onChange={(e) =>
             props.updateConfig(
@@ -74,7 +86,7 @@ export function ModelConfigList(props: {
       >
         <InputRange
           value={props.modelConfig.presence_penalty?.toFixed(1)}
-          min="-2"
+          min="1.0"
           max="2"
           step="0.1"
           onChange={(e) => {

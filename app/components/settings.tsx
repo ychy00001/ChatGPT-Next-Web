@@ -239,11 +239,11 @@ export function Settings() {
   }
 
   const accessStore = useAccessStore();
-  const enabledAccessControl = useMemo(
-    () => accessStore.enabledAccessControl(),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  //   const enabledAccessControl = useMemo(
+  //     () => accessStore.enabledAccessControl(),
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  //     [],
+  //   );
 
   const promptStore = usePromptStore();
   const builtinCount = SearchService.count.builtin;
@@ -470,7 +470,7 @@ export function Settings() {
         </List>
 
         <List>
-          {enabledAccessControl ? (
+          {/* {enabledAccessControl ? (
             <ListItem
               title={Locale.Settings.AccessCode.Title}
               subTitle={Locale.Settings.AccessCode.SubTitle}
@@ -486,9 +486,9 @@ export function Settings() {
             </ListItem>
           ) : (
             <></>
-          )}
+          )} */}
 
-          {!accessStore.hideUserApiKey ? (
+          {/* {!accessStore.hideUserApiKey ? (
             <ListItem
               title={Locale.Settings.Token.Title}
               subTitle={Locale.Settings.Token.SubTitle}
@@ -502,7 +502,7 @@ export function Settings() {
                 }}
               />
             </ListItem>
-          ) : null}
+          ) : null} */}
 
           <ListItem
             title={Locale.Settings.Usage.Title}
