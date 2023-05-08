@@ -239,7 +239,7 @@ const en: LocaleType = {
   },
 
   Custom: {
-    SideSubTile: "Cloudwalk LLM Lab",
+    SideSubTile: "CloudWalk LLM Workbench",
   },
 };
 
