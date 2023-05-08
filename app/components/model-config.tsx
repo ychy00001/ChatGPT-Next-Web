@@ -47,7 +47,7 @@ export function ModelConfigList(props: {
         subTitle={Locale.Settings.Temperature.SubTitle}
       >
         <InputRange
-          value={props.modelConfig.temperature?.toFixed(1)}
+          value={props.modelConfig.temperature?.toFixed(0.1)}
           min="0"
           max="1" // lets limit it to 0-1
           step="0.1"
