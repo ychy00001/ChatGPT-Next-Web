@@ -31,7 +31,7 @@ export const DEFAULT_CONFIG = {
 
   modelConfig: {
     model: "cwRong",
-    temperature: 1,
+    temperature: 0.1,
     max_tokens: 1000,
     max_new_tokens: 1000,
     presence_penalty: 1.0,
