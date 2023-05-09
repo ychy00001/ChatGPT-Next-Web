@@ -4,6 +4,7 @@ const next = require('next')
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
+console.log("Server proxy url:" + process.env.API_URL)
 const devProxy = {
   '/api': {
     target: process.env.API_URL, // 端口自己配置合适的
@@ -26,7 +27,7 @@ app.prepare()
   .then(() => {
     const server = express()
 
-    if (dev && devProxy) {
+    if (devProxy) {
       Object.keys(devProxy).forEach(function (context) {
         server.use(createProxyMiddleware(context, devProxy[context]))
       })
