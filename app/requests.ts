@@ -55,11 +55,13 @@ const makeRequestParam = (
     }
   });
   return {
-    stream: options?.stream,
+    // stream: options?.stream,
     // inputs: "context:"+ history + "\n###" + prompt,
     inputs:
-      "If you are a artificial intelligence assistant, please answer the user questions based on the user asks and descriptions.\n" +
+      "If you are a artificial intelligence assistant, please answer the user questions based on the user asks and descriptions." +
+      "\n\nHistory:{" +
       history +
+      "}" +
       "\nUser:" +
       prompt +
       "\nAssistant:",
@@ -218,7 +220,7 @@ export async function requestChatStream(
 
   try {
     const openaiUrl = useAccessStore.getState().gptBaseUrl;
-    const res = await fetch(openaiUrl + "", {
+    const res = await fetch(openaiUrl + "generate_stream", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -237,59 +239,16 @@ export async function requestChatStream(
     };
 
     if (res.ok) {
-      // const reader = res.body?.getReader();
-      // const decoder = new TextDecoder("utf-8");
-
       options?.onController?.(controller);
-
       for await (const measurement of parseJsonStream(res.body)) {
+        let output = "";
         if (measurement.token.text !== "</s>") {
-          responseText += measurement.token.text;
+          console.log(measurement.token.text);
+          output = measurement.token.text;
         }
+        responseText += output;
+        options?.onMessage(responseText, false);
       }
-
-      // while (true) {
-      //   const resTimeoutId = setTimeout(() => finish(), TIME_OUT_MS);
-      //   const content = await reader?.read();
-      //   console.log("content", content.value)
-      //   clearTimeout(resTimeoutId);
-      //   if (!content || !content.value) {
-      //     break;
-      //   }
-
-      //   const text = decoder.decode(content.value, { stream: true });
-      //   console.log("原始数据",text)
-      //   let repl = text.replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\0/g,"");
-      //   repl = repl.substring(5)
-      //   console.log("替换数据数据",repl)
-      //   const textJson=JSON.parse(String(repl).trim());
-      //   console.log("JSON对象",text)
-      //   let output = ""
-
-      //   if(textJson && textJson.token){
-      //     output =  textJson.token.text
-      //   }else{
-      //     output = "结果返回异常"
-      //   }
-
-      //   // 需要格式化数据
-      // //   if (textJson.error_code == 0){
-      // //     // output = textJson.text.substring(req.prompt.length)
-      // //     output = textJson.text
-      // //   }else{
-      // //     output = textJson.text + " (error_code: {+"+ textJson.error_code +"+})"
-      // //   }
-
-      //   responseText += output;
-
-      //   const done = content.done;
-      //   options?.onMessage(responseText, false);
-
-      //   if (done || textJson.error_code != 0) {
-      //     break;
-      //   }
-      // }
-
       finish();
     } else if (res.status === 401) {
       console.error("Unauthorized");

@@ -341,7 +341,7 @@ export function Settings() {
             </Popover>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
             subTitle={
               checkingUpdate
@@ -364,7 +364,7 @@ export function Settings() {
                 onClick={() => checkUpdate(true)}
               />
             )}
-          </ListItem>
+          </ListItem> */}
 
           <ListItem title={Locale.Settings.SendKey}>
             <select
@@ -469,8 +469,8 @@ export function Settings() {
           </ListItem>
         </List>
 
-        <List>
-          {/* {enabledAccessControl ? (
+        {/* <List> */}
+        {/* {enabledAccessControl ? (
             <ListItem
               title={Locale.Settings.AccessCode.Title}
               subTitle={Locale.Settings.AccessCode.SubTitle}
@@ -488,7 +488,7 @@ export function Settings() {
             <></>
           )} */}
 
-          {/* {!accessStore.hideUserApiKey ? (
+        {/* {!accessStore.hideUserApiKey ? (
             <ListItem
               title={Locale.Settings.Token.Title}
               subTitle={Locale.Settings.Token.SubTitle}
@@ -504,7 +504,7 @@ export function Settings() {
             </ListItem>
           ) : null} */}
 
-          <ListItem
+        {/* <ListItem
             title={Locale.Settings.Usage.Title}
             subTitle={
               showUsage
@@ -526,8 +526,8 @@ export function Settings() {
                 onClick={() => checkUsage(true)}
               />
             )}
-          </ListItem>
-        </List>
+          </ListItem> */}
+        {/* </List> */}
 
         <List>
           <ListItem
@@ -546,7 +546,7 @@ export function Settings() {
             ></input>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Prompt.List}
             subTitle={Locale.Settings.Prompt.ListCount(
               builtinCount,
@@ -558,7 +558,7 @@ export function Settings() {
               text={Locale.Settings.Prompt.Edit}
               onClick={() => setShowPromptModal(true)}
             />
-          </ListItem>
+          </ListItem> */}
         </List>
 
         <List>

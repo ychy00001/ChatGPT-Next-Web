@@ -66,17 +66,25 @@ function useMaskGroup(masks: Mask[]) {
     if (!appBody || masks.length === 0) return;
 
     const rect = appBody.getBoundingClientRect();
-    const maxWidth = rect.width;
-    const maxHeight = rect.height * 0.6;
+    const maxWidth = rect.width * 0.5;
+    const maxHeight = rect.height * 0.2;
     const maskItemWidth = 120;
     const maskItemHeight = 50;
 
-    const randomMask = () => masks[Math.floor(Math.random() * masks.length)];
+    // const randomMask = () => masks[Math.floor(Math.random() * masks.length)];
     let maskIndex = 0;
     const nextMask = () => masks[maskIndex++ % masks.length];
+    const randomMask = () => masks[maskIndex++ % masks.length];
 
-    const rows = Math.ceil(maxHeight / maskItemHeight);
-    const cols = Math.ceil(maxWidth / maskItemWidth);
+    let rows = Math.ceil(maxHeight / maskItemHeight);
+    let cols = Math.ceil(maxWidth / maskItemWidth);
+
+    if (masks.length < cols) {
+      cols = masks.length;
+      rows = 1;
+    } else if (masks.length < rows * cols) {
+      rows = Math.floor(masks.length / cols);
+    }
 
     const newGroups = new Array(rows)
       .fill(0)
