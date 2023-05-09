@@ -243,7 +243,6 @@ export async function requestChatStream(
       for await (const measurement of parseJsonStream(res.body)) {
         let output = "";
         if (measurement.token.text !== "</s>") {
-          console.log(measurement.token.text);
           output = measurement.token.text;
         }
         responseText += output;
