@@ -85,10 +85,10 @@ export function ModelConfigList(props: {
         subTitle={Locale.Settings.PresencePenlty.SubTitle}
       >
         <InputRange
-          value={props.modelConfig.presence_penalty?.toFixed(1)}
-          min="1.0"
-          max="2"
-          step="0.1"
+          value={props.modelConfig.presence_penalty?.toFixed(2)}
+          min="1.00"
+          max="2.00"
+          step="0.05"
           onChange={(e) => {
             props.updateConfig(
               (config) =>

@@ -204,39 +204,39 @@ export function Settings() {
   const resetConfig = config.reset;
   const chatStore = useChatStore();
 
-  const updateStore = useUpdateStore();
+  //   const updateStore = useUpdateStore();
   const [checkingUpdate, setCheckingUpdate] = useState(false);
-  const currentVersion = formatVersionDate(updateStore.version);
-  const remoteId = formatVersionDate(updateStore.remoteVersion);
-  const hasNewVersion = currentVersion !== remoteId;
+  //   const currentVersion = formatVersionDate(updateStore.version);
+  //   const remoteId = formatVersionDate(updateStore.remoteVersion);
+  //   const hasNewVersion = currentVersion !== remoteId;
 
-  function checkUpdate(force = false) {
-    setCheckingUpdate(true);
-    updateStore.getLatestVersion(force).then(() => {
-      setCheckingUpdate(false);
-    });
+  //   function checkUpdate(force = false) {
+  //     setCheckingUpdate(true);
+  //     updateStore.getLatestVersion(force).then(() => {
+  //       setCheckingUpdate(false);
+  //     });
 
-    console.log(
-      "[Update] local version ",
-      new Date(+updateStore.version).toLocaleString(),
-    );
-    console.log(
-      "[Update] remote version ",
-      new Date(+updateStore.remoteVersion).toLocaleString(),
-    );
-  }
+  //     console.log(
+  //       "[Update] local version ",
+  //       new Date(+updateStore.version).toLocaleString(),
+  //     );
+  //     console.log(
+  //       "[Update] remote version ",
+  //       new Date(+updateStore.remoteVersion).toLocaleString(),
+  //     );
+  //   }
 
-  const usage = {
-    used: updateStore.used,
-    subscription: updateStore.subscription,
-  };
+  //   const usage = {
+  //     used: updateStore.used,
+  //     subscription: updateStore.subscription,
+  //   };
   const [loadingUsage, setLoadingUsage] = useState(false);
-  function checkUsage(force = false) {
-    setLoadingUsage(true);
-    updateStore.updateUsage(force).finally(() => {
-      setLoadingUsage(false);
-    });
-  }
+  //   function checkUsage(force = false) {
+  //     setLoadingUsage(true);
+  //     updateStore.updateUsage(force).finally(() => {
+  //       setLoadingUsage(false);
+  //     });
+  //   }
 
   const accessStore = useAccessStore();
   //   const enabledAccessControl = useMemo(
@@ -251,12 +251,12 @@ export function Settings() {
   const [shouldShowPromptModal, setShowPromptModal] = useState(false);
 
   const showUsage = accessStore.isAuthorized();
-  useEffect(() => {
-    // checks per minutes
-    checkUpdate();
-    showUsage && checkUsage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   useEffect(() => {
+  //     // checks per minutes
+  //     checkUpdate();
+  //     showUsage && checkUsage();
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   }, []);
 
   useEffect(() => {
     const keydownEvent = (e: KeyboardEvent) => {
