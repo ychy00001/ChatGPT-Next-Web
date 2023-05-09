@@ -634,7 +634,8 @@ export function Chat() {
           </div>
         </div>
         <div className="window-actions">
-          {/* <div className={"window-action-button" + " " + styles.mobile}>
+          {
+            /* <div className={"window-action-button" + " " + styles.mobile}>
             <IconButton
               icon={<ReturnIcon />}
               bordered
@@ -648,20 +649,21 @@ export function Chat() {
               bordered
               onClick={renameSession}
             />
-          </div>
-          <div className="window-action-button">
-            <IconButton
-              icon={<ExportIcon />}
-              bordered
-              title={Locale.Chat.Actions.Export}
-              onClick={() => {
-                exportMessages(
-                  session.messages.filter((msg) => !msg.isError),
-                  session.topic,
-                );
-              }}
-            />
-          </div>
+          </div> */
+            <div className="window-action-button">
+              <IconButton
+                icon={<ExportIcon />}
+                bordered
+                title={Locale.Chat.Actions.Export}
+                onClick={() => {
+                  exportMessages(
+                    session.messages.filter((msg) => !msg.isError),
+                    session.topic,
+                  );
+                }}
+              />
+            </div>
+            /*
           {!isMobileScreen && (
             <div className="window-action-button">
               <IconButton
@@ -674,7 +676,8 @@ export function Chat() {
                 }}
               />
             </div>
-          )} */}
+          )} */
+          }
         </div>
 
         <PromptToast

@@ -14,7 +14,6 @@ const devProxy = {
     changeOrigin: true
   }
 }
-console.log(process.env.PORT)
 const port = parseInt(process.env.PORT, 10) || 3000
 console.log("Server start with port :" + port)
 const dev = process.env.NODE_ENV !== 'production'
