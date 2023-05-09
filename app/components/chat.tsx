@@ -564,14 +564,16 @@ export function Chat() {
   const context: RenderMessage[] = session.mask.context.slice();
 
   const accessStore = useAccessStore();
-
   if (
     context.length === 0 &&
     session.messages.at(0)?.content !== BOT_HELLO.content
   ) {
     const copiedHello = Object.assign({}, BOT_HELLO);
     if (!accessStore.isAuthorized()) {
+      console.log("未授权");
       copiedHello.content = Locale.Error.Unauthorized;
+    } else {
+      console.log("已授权");
     }
     context.push(copiedHello);
   }
