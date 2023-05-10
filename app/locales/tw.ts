@@ -166,7 +166,7 @@ const tw: LocaleType = {
   },
   Store: {
     DefaultTopic: "新的對話",
-    BotHello: "您好，我是云从科技AI助手大模型，有什么可以帮你的吗？",
+    BotHello: "您好，我是云从科技AI助手，有什么可以帮你的吗？",
     Error: "出錯了，請稍後再嘗試",
     Prompt: {
       History: (content: string) =>

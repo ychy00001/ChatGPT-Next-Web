@@ -169,7 +169,7 @@ const vi: LocaleType = {
   Store: {
     DefaultTopic: "Cuộc trò chuyện mới",
     BotHello:
-      "Hello, I am a big model of AI assistant from CloudWalk Technology. How can I help you?",
+      "Hello, I am a AI assistant from CloudWalk Technology. How can I help you?",
     Error: "Có lỗi xảy ra, vui lòng thử lại sau.",
     Prompt: {
       History: (content: string) =>

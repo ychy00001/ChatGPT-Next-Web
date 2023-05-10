@@ -172,7 +172,8 @@ const tr: LocaleType = {
   },
   Store: {
     DefaultTopic: "Yeni Konuşma",
-    BotHello: "Merhaba! Size bugün nasıl yardımcı olabilirim?",
+    BotHello:
+      "Hello, I am a AI assistant from CloudWalk Technology. How can I help you?",
     Error: "Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.",
     Prompt: {
       History: (content: string) =>

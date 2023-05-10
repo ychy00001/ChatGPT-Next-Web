@@ -173,7 +173,7 @@ const de: LocaleType = {
   Store: {
     DefaultTopic: "Neues Gespräch",
     BotHello:
-      "Hello, I am a big model of AI assistant from CloudWalk Technology. How can I help you?",
+      "Hello, I am a AI assistant from CloudWalk Technology. How can I help you?",
     Error:
       "Etwas ist schief gelaufen, bitte versuchen Sie es später noch einmal.",
     Prompt: {

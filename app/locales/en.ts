@@ -171,7 +171,7 @@ const en: LocaleType = {
   Store: {
     DefaultTopic: "New Conversation",
     BotHello:
-      "Hello, I am a big model of AI assistant from CloudWalk Technology. How can I help you?",
+      "Hello, I am a AI assistant from CloudWalk Technology. How can I help you?",
     Error: "Something went wrong, please try again later.",
     Prompt: {
       History: (content: string) =>

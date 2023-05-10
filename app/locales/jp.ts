@@ -173,7 +173,7 @@ const jp: LocaleType = {
   Store: {
     DefaultTopic: "新しいチャット",
     BotHello:
-      "こんにちは、私は雲から科学技術のAI助手の大きい模型で、何があなたのを助けることができますか?",
+      "こんにちは、私は雲から科学技術のAI助手です、何があなたを助けることができますか?",
     Error: "エラーが発生しました。しばらくしてからやり直してください。",
     Prompt: {
       History: (content: string) =>
