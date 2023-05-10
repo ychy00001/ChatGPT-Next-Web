@@ -31,12 +31,12 @@ export const DEFAULT_CONFIG = {
 
   modelConfig: {
     model: "cwRong",
-    temperature: 0.3,
+    temperature: 0.1,
     max_tokens: 1024,
     presence_penalty: 1.05,
-    sendMemory: true,
-    historyMessageCount: 6,
-    compressMessageLengthThreshold: 1000,
+    sendMemory: false,
+    historyMessageCount: 32,
+    compressMessageLengthThreshold: 2000,
     top_p: 0.95,
     top_k: 50,
     do_sample: true,
@@ -80,6 +80,26 @@ export const ALL_MODELS = [
   {
     name: "gpt-3.5-turbo-0301",
     available: true,
+  },
+  {
+    name: "qwen-v1", // 通义千问
+    available: false,
+  },
+  {
+    name: "ernie", // 文心一言
+    available: false,
+  },
+  {
+    name: "spark", // 讯飞星火
+    available: false,
+  },
+  {
+    name: "llama", // llama
+    available: false,
+  },
+  {
+    name: "chatglm", // chatglm-6b
+    available: false,
   },
 ] as const;
 

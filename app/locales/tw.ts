@@ -78,6 +78,7 @@ const tw: LocaleType = {
         tr: "Türkçe",
         jp: "日本語",
         de: "Deutsch",
+        vi: "Vietnamese",
       },
     },
     Avatar: "大頭貼",
@@ -165,7 +166,7 @@ const tw: LocaleType = {
   },
   Store: {
     DefaultTopic: "新的對話",
-    BotHello: "請問需要我的協助嗎？",
+    BotHello: "您好，我是云从科技AI助手大模型，有什么可以帮你的吗？",
     Error: "出錯了，請稍後再嘗試",
     Prompt: {
       History: (content: string) =>

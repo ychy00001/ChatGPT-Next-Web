@@ -1,5 +1,4 @@
-import styles from "./settings.module.scss";
-import { ModalConfigValidator, ModelConfig } from "../store";
+import { ALL_MODELS, ModalConfigValidator, ModelConfig } from "../store";
 
 import Locale from "../locales";
 import { InputRange } from "./input-range";

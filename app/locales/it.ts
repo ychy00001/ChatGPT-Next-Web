@@ -80,6 +80,7 @@ const it: LocaleType = {
         tr: "Türkçe",
         jp: "日本語",
         de: "Deutsch",
+        vi: "Vietnamese",
       },
     },
     Avatar: "Avatar",
@@ -170,7 +171,8 @@ const it: LocaleType = {
   },
   Store: {
     DefaultTopic: "Nuova conversazione",
-    BotHello: "Ciao, come posso aiutarti oggi?",
+    BotHello:
+      "Hello, I am a big model of AI assistant from CloudWalk Technology. How can I help you?",
     Error: "Qualcosa è andato storto, riprova più tardi.",
     Prompt: {
       History: (content: string) =>

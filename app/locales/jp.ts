@@ -80,6 +80,7 @@ const jp: LocaleType = {
         tr: "Türkçe",
         jp: "日本語",
         de: "Deutsch",
+        vi: "Vietnamese",
       },
     },
     Avatar: "アバター",
@@ -171,7 +172,8 @@ const jp: LocaleType = {
   },
   Store: {
     DefaultTopic: "新しいチャット",
-    BotHello: "何かお手伝いできることはありますか",
+    BotHello:
+      "こんにちは、私は雲から科学技術のAI助手の大きい模型で、何があなたのを助けることができますか?",
     Error: "エラーが発生しました。しばらくしてからやり直してください。",
     Prompt: {
       History: (content: string) =>
