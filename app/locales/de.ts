@@ -1,17 +1,17 @@
 import { SubmitKey } from "../store/config";
-import type { LocaleType } from "./index";
+import type { PartialLocaleType } from "./index";
 
-const de: LocaleType = {
+const de: PartialLocaleType = {
   WIP: "In Bearbeitung...",
   Error: {
     Unauthorized:
-      "Unbefugter Zugriff, bitte geben Sie den Zugangscode auf der Einstellungsseite ein.",
+      "Unbefugter Zugriff, bitte geben Sie den Zugangscode auf der [Einstellungsseite](/#/auth) ein.",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} Nachrichten`,
   },
   Chat: {
-    SubTitle: (count: number) => `${count} Nachrichten mit RongGPT`,
+    SubTitle: (count: number) => `${count} Nachrichten mit ChatGPT`,
     Actions: {
       ChatList: "Zur Chat-Liste gehen",
       CompressedHistory: "Komprimierter Gedächtnis-Prompt",
@@ -41,7 +41,7 @@ const de: LocaleType = {
     Copy: "Alles kopieren",
     Download: "Herunterladen",
     MessageFromYou: "Deine Nachricht",
-    MessageFromChatGPT: "Nachricht von RongGPT",
+    MessageFromChatGPT: "Nachricht von ChatGPT",
   },
   Memory: {
     Title: "Gedächtnis-Prompt",
@@ -61,33 +61,20 @@ const de: LocaleType = {
   Settings: {
     Title: "Einstellungen",
     SubTitle: "Alle Einstellungen",
-    Actions: {
-      ClearAll: "Alle Daten löschen",
-      ResetAll: "Alle Einstellungen zurücksetzen",
-      Close: "Schließen",
-      ConfirmResetAll:
-        "Möchten Sie wirklich alle Konfigurationen zurücksetzen?",
-      ConfirmClearAll: "Möchten Sie wirklich alle Chats zurücksetzen?",
-    },
+
     Lang: {
       Name: "Language", // ATTENTION: if you wanna add a new translation, please do not translate this value, leave it as `Language`
-      All: "All Languages",
-      Options: {
-        cn: "简体中文",
-        en: "English",
-        tw: "繁體中文",
-        es: "Español",
-        it: "Italiano",
-        tr: "Türkçe",
-        jp: "日本語",
-        de: "Deutsch",
-        vi: "Vietnamese",
-      },
+      All: "Alle Sprachen",
     },
     Avatar: "Avatar",
     FontSize: {
       Title: "Schriftgröße",
       SubTitle: "Schriftgröße des Chat-Inhalts anpassen",
+    },
+    InjectSystemPrompts: {
+      Title: "System-Prompts einfügen",
+      SubTitle:
+        "Erzwingt das Hinzufügen eines simulierten systemweiten Prompts von ChatGPT am Anfang der Nachrichtenliste bei jeder Anfrage",
     },
     Update: {
       Version: (x: string) => `Version: ${x}`,
@@ -105,8 +92,10 @@ const de: LocaleType = {
       SubTitle: "Preview markdown in bubble",
     },
     Mask: {
-      Title: "Mask Splash Screen",
-      SubTitle: "Show a mask splash screen before starting new chat",
+      Splash: {
+        Title: "Mask Splash Screen",
+        SubTitle: "Show a mask splash screen before starting new chat",
+      },
     },
     Prompt: {
       Disable: {
@@ -135,12 +124,7 @@ const de: LocaleType = {
       SubTitle:
         "Komprimierung, wenn die Länge der unkomprimierten Nachrichten den Wert überschreitet",
     },
-    Token: {
-      Title: "API-Schlüssel",
-      SubTitle:
-        "Verwenden Sie Ihren Schlüssel, um das Zugangscode-Limit zu ignorieren",
-      Placeholder: "OpenAI API-Schlüssel",
-    },
+
     Usage: {
       Title: "Kontostand",
       SubTitle(used: any, total: any) {
@@ -149,11 +133,6 @@ const de: LocaleType = {
       IsChecking: "Wird überprüft...",
       Check: "Erneut prüfen",
       NoAccess: "API-Schlüssel eingeben, um den Kontostand zu überprüfen",
-    },
-    AccessCode: {
-      Title: "Zugangscode",
-      SubTitle: "Zugangskontrolle aktiviert",
-      Placeholder: "Zugangscode erforderlich",
     },
     Model: "Modell",
     Temperature: {
@@ -164,16 +143,20 @@ const de: LocaleType = {
       Title: "Max Tokens", //Maximale Token
       SubTitle: "Maximale Anzahl der Anfrage- plus Antwort-Token",
     },
-    PresencePenlty: {
+    PresencePenalty: {
       Title: "Presence Penalty", //Anwesenheitsstrafe
       SubTitle:
         "Ein größerer Wert erhöht die Wahrscheinlichkeit, dass über neue Themen gesprochen wird",
     },
+    FrequencyPenalty: {
+      Title: "Frequency Penalty", // HäufigkeitStrafe
+      SubTitle:
+        "Ein größerer Wert, der die Wahrscheinlichkeit verringert, dass dieselbe Zeile wiederholt wird",
+    },
   },
   Store: {
     DefaultTopic: "Neues Gespräch",
-    BotHello:
-      "Hello, I am a AI assistant from CloudWalk Technology. How can I help you?",
+    BotHello: "Hallo! Wie kann ich Ihnen heute helfen?",
     Error:
       "Etwas ist schief gelaufen, bitte versuchen Sie es später noch einmal.",
     Prompt: {
@@ -198,6 +181,9 @@ const de: LocaleType = {
   },
   Plugin: {
     Name: "Plugin",
+  },
+  FineTuned: {
+    Sysmessage: "Du bist ein Assistent, der",
   },
   Mask: {
     Name: "Mask",
@@ -243,9 +229,11 @@ const de: LocaleType = {
     Create: "Create",
     Edit: "Edit",
   },
-
-  Custom: {
-    SideSubTile: "Cloudwalk LLM Lab",
+  Exporter: {
+    Model: "Modell",
+    Messages: "Nachrichten",
+    Topic: "Thema",
+    Time: "Zeit",
   },
 };
 
