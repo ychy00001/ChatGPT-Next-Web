@@ -33,6 +33,9 @@ const DEFAULT_ACCESS_STATE = {
   azure4ApiKey: "",
   azure4ApiVersion: "2023-08-01-preview",
 
+  //cw
+  cwaiUrl: "",
+
   // google ai studio
   googleUrl: "",
   googleApiKey: "",

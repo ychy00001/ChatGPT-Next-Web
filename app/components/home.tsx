@@ -173,6 +173,9 @@ export function useLoadData() {
   var api: ClientApi;
   if (config.modelConfig.model === "gemini-pro") {
     api = new ClientApi(ModelProvider.GeminiPro);
+  }
+  if (config.modelConfig.model.startsWith("cw-")) {
+    api = new ClientApi(ModelProvider.CW);
   } else {
     api = new ClientApi(ModelProvider.GPT);
   }

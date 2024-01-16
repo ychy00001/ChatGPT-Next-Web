@@ -70,6 +70,7 @@ export const getServerSideConfig = () => {
 
   const isAzure = !!process.env.AZURE_URL;
   const isGoogle = !!process.env.GOOGLE_API_KEY;
+  const isCw = !!process.env.CWAI_URL_VARS;
 
   const apiKeyEnvVar = process.env.OPENAI_API_KEY ?? "";
   const apiKeys = apiKeyEnvVar.split(",").map((v) => v.trim());
@@ -78,6 +79,21 @@ export const getServerSideConfig = () => {
   console.log(
     `[Server Config] using ${randomIndex + 1} of ${apiKeys.length} api key`,
   );
+
+  let cwUrlVars = process.env.CWAI_URL_VARS ?? "";
+  let cwURLs = [];
+  if (cwUrlVars.length > 0) {
+    cwURLs = cwUrlVars.split("**").map((item) => {
+      if (item.length == 0) {
+        return "";
+      }
+      const urlWithName = item.split("++");
+      return {
+        modelName: urlWithName[0],
+        modelUrl: urlWithName[1],
+      };
+    });
+  }
 
   return {
     baseUrl: process.env.BASE_URL,
@@ -92,6 +108,9 @@ export const getServerSideConfig = () => {
     azure4Url: process.env.AZURE4_URL,
     azure4ApiKey: process.env.AZURE4_API_KEY,
     azure4ApiVersion: process.env.AZURE4_API_VERSION,
+
+    isCw,
+    cwURLs,
 
     isGoogle,
     googleApiKey: process.env.GOOGLE_API_KEY,

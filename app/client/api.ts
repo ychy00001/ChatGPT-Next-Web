@@ -8,6 +8,7 @@ import {
 import { ChatMessage, ModelType, useAccessStore, useChatStore } from "../store";
 import { ChatGPTApi } from "./platforms/openai";
 import { GeminiProApi } from "./platforms/google";
+import { CwGPTApi } from "./platforms/cw";
 export const ROLES = ["system", "user", "assistant"] as const;
 export type MessageRole = (typeof ROLES)[number];
 
@@ -89,6 +90,9 @@ export class ClientApi {
     if (provider === ModelProvider.GeminiPro) {
       this.llm = new GeminiProApi();
       return;
+    } else if (provider === ModelProvider.CW) {
+      this.llm = new CwGPTApi();
+      return;
     }
     this.llm = new ChatGPTApi();
   }
@@ -147,6 +151,11 @@ export function getHeaders() {
   };
   const modelConfig = useChatStore.getState().currentSession().mask.modelConfig;
   const isGoogle = modelConfig.model === "gemini-pro";
+  const isCW = modelConfig.model.startsWith("cw-");
+  if (isCW) {
+    return headers;
+  }
+
   const isGPT4 = modelConfig.model.startsWith("gpt-4");
   const isAzure = accessStore.provider === ServiceProvider.Azure;
   const authHeader = isAzure ? "api-key" : "Authorization";

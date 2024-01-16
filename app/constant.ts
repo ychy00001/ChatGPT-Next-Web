@@ -13,6 +13,7 @@ export const DEFAULT_API_HOST = `${DEFAULT_CORS_HOST}/api/proxy`;
 export const OPENAI_BASE_URL = "https://api.openai.com";
 
 export const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/";
+export const CWAI_BASE_URL = "http://10.178.13.111:15501";
 
 export enum Path {
   Home = "/",
@@ -68,11 +69,13 @@ export enum ServiceProvider {
   OpenAI = "OpenAI",
   Azure = "Azure",
   Google = "Google",
+  CwAI = "CwAI",
 }
 
 export enum ModelProvider {
   GPT = "GPT",
   GeminiPro = "GeminiPro",
+  CW = "CW",
 }
 
 export const OpenaiPath = {
@@ -82,8 +85,20 @@ export const OpenaiPath = {
   ListModelPath: "v1/models",
 };
 
+export const CwAIPath = {
+  ChatPath: "chat",
+  ChatStreamPath: "chat_stream",
+  CompletePath: "generate",
+  CompleteStreamPath: "generate_stream",
+};
+
 export const Azure = {
   ExampleEndpoint: "https://{resource-url}/openai/deployments/{deploy-id}",
+};
+
+export const CW = {
+  ExampleEndpoint: "http://10.178.13.111:15501/",
+  ChatPath: "chat_stream",
 };
 
 export const Google = {
@@ -248,6 +263,7 @@ export const DEFAULT_MODELS_BACK = [
     },
   },
 ] as const;
+
 export const DEFAULT_MODELS = [
   {
     name: "gpt-4",
@@ -265,6 +281,15 @@ export const DEFAULT_MODELS = [
       id: "openai",
       providerName: "OpenAI",
       providerType: "openai",
+    },
+  },
+  {
+    name: "cw-v1",
+    available: true,
+    provider: {
+      id: "cw",
+      providerName: "CwAI",
+      providerType: "cwai",
     },
   },
 ] as const;

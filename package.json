@@ -4,6 +4,7 @@
   "license": "mit",
   "scripts": {
     "dev": "next dev",
+    "test": "next dev -p 22004",
     "build": "cross-env BUILD_MODE=standalone next build",
     "start": "next start",
     "lint": "next lint",
